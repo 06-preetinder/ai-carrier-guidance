@@ -1,102 +1,156 @@
-# SensAi
+# SensAI Website Documentation
 
-## Introduction
-SensAi is a full-stack web application that leverages artificial intelligence to provide personalized career guidance. It helps users by analyzing their skills, resumes, and job preferences to offer tailored career recommendations, interview preparation, and job matching.
+## Overview
+SensAI is a modern web application built with Next.js, featuring AI capabilities and a clean, responsive design. The website includes various features like AI assistance, authentication, and dynamic content management.
 
-## Problem Statement
-Choosing the right career path is challenging for many individuals. Traditional career guidance is often generalized and lacks personalization. Many job seekers struggle with resume building, interview preparation, and identifying skill gaps. AI Career Coach aims to bridge this gap by offering AI-powered, data-driven career recommendations.
+## Tech Stack
+- **Framework**: Next.js 15.1.4
+- **Frontend**: React 19
+- **Styling**: Tailwind CSS
+- **Authentication**: Clerk
+- **Database**: Prisma
+- **AI Integration**: Google Generative AI
+- **UI Components**: Radix UI
+- **Form Handling**: React Hook Form
+- **Markdown Editor**: UIW React MD Editor
+- **Charts**: Recharts
+- **PDF Generation**: html2pdf.js
 
-## Solution
-AI Career Coach uses machine learning models to analyze user data, such as skills, job preferences, and past experiences. It then generates personalized career advice, recommends relevant job opportunities, and assists with resume enhancement and mock interviews.
+## Project Structure
 
-## Technology Stack
-The project is built using the following technologies:
-- **Frontend:** Next.js (for building the user interface)
-- **Backend:** Node.js and Express.js (for handling API requests)
-- **Database:** PostgreSQL (Neon for cloud-based database management)
-- **Authentication:** Clerk (for user authentication and authorization)
-- **AI Models:** OpenAI API (for natural language processing and resume analysis)
-- **Serverless Functions:** Inngest (for automating backend workflows)
-- **Hosting:** Vercel (for frontend) and Railway (for backend deployment)
+### Main Directories
+- `/app` - Next.js app router pages and layouts
+- `/components` - Reusable React components
+- `/public` - Static assets
+- `/prisma` - Database schema and migrations
+- `/lib` - Utility functions and shared code
+- `/hooks` - Custom React hooks
+- `/actions` - Server actions
+- `/data` - Static data and configurations
 
-## Key Features
-- **Personalized Career Guidance:** AI-based recommendations based on user profiles.
-- **Resume Analysis:** AI-powered resume feedback and improvement suggestions.
-- **Job Matching:** Finds the best job opportunities based on skills and preferences.
-- **Interview Preparation:** AI-generated mock interview questions and feedback.
-- **Skill Gap Analysis:** Identifies missing skills and suggests learning resources.
+### Key Components
 
-## Workflow
-1. User registers and logs in using Clerk authentication.
-2. The system collects user details (skills, job preferences, experience).
-3. AI analyzes the data and generates career recommendations.
-4. User receives job suggestions, resume feedback, and interview questions.
-5. Backend handles data storage and automation using serverless functions.
+#### Layout Components
+- `layout.js` - Root layout with theme provider
+- `header.jsx` - Navigation header
+- `theme-provider.jsx` - Dark/light mode theme management
 
-## Use Cases
-- **Students** looking for career guidance based on their education and interests.
-- **Job seekers** needing AI-powered resume review and job recommendations.
-- **Professionals** aiming to switch careers and identify skill gaps.
-- **HR professionals** using AI to assist candidates in career planning.
+#### Feature Components
+- `hero.jsx` - Landing page hero section
+- `ai-assistant-button.jsx` - AI assistant integration button
 
-## Installation and Setup
-Follow these steps to set up the project on your local machine:
+#### UI Components
+Located in `/components/ui`:
+- Various Radix UI based components
+- Custom styled components
+- Form elements
+- Dialog and modal components
 
-### Prerequisites
-Ensure you have the following installed:
-- Node.js (>= 16.x)
-- PostgreSQL database (Neon for cloud-based management)
-- Git
+### Pages
+- `/` - Home page
+- `/ai-assistant` - AI assistant interface
+- `/auth/*` - Authentication pages
+- `/api/*` - API routes
 
-### Clone the Repository
-```sh
-git clone https://github.com/chetanck03/sensai.git
-cd sensai
-```
+## Features
+1. **Authentication System**
+   - User registration and login
+   - Protected routes
+   - Session management
 
-### Install Dependencies
-```sh
+2. **AI Integration**
+   - AI assistant functionality
+   - Chat interface
+   - Generative AI capabilities
+
+3. **Responsive Design**
+   - Mobile-first approach
+   - Dark/light mode support
+   - Modern UI components
+
+4. **Content Management**
+   - Markdown support
+   - Dynamic content rendering
+   - PDF generation
+
+## Resume Builder Guide
+
+### How to Use the Resume Builder
+
+1. **Accessing the Resume Builder**
+   - Navigate to the Resume section from the main menu
+   - The builder is available after logging in
+
+2. **Main Features**
+   - **Form View**: Fill in your resume details using a structured form
+   - **Markdown Preview**: See your resume in real-time as markdown
+   - **AI Enhancement**: Get AI-powered suggestions for improving your content
+   - **PDF Export**: Download your resume as a PDF
+
+3. **Sections to Complete**
+   - **Contact Information**
+     - Email, phone, LinkedIn, and Twitter profiles
+   - **Professional Summary**
+     - Write a compelling summary of your experience
+   - **Skills**
+     - List your key skills and competencies
+   - **Work Experience**
+     - Add job positions with details
+     - Use AI to enhance descriptions
+   - **Education**
+     - Add your educational background
+   - **Projects**
+     - Showcase your key projects
+
+4. **AI-Powered Features**
+   - Click "Improve with AI" to enhance any section
+   - Get professional suggestions for content improvement
+   - AI analyzes your industry and experience level
+
+5. **Saving and Exporting**
+   - Click "Save" to store your resume
+   - Use "Download PDF" to export your resume
+   - Your resume is automatically saved as you work
+
+6. **Tips for Best Results**
+   - Be specific in your descriptions
+   - Use action verbs
+   - Include quantifiable achievements
+   - Keep formatting consistent
+   - Use the AI enhancement feature for professional polish
+
+## Getting Started
+
+1. Install dependencies:
+```bash
 npm install
 ```
 
-### Set Up Environment Variables
-Create a `.env` file in the root directory and configure the following:
-```
-DATABASE_URL=
+2. Set up environment variables:
+- Create `.env` file with required credentials
+- Configure Clerk authentication
+- Set up Google AI API keys
 
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
-
-GEMINI_API_KEY=
-```
-
-### Start the Development Server
-```sh
+3. Run development server:
+```bash
 npm run dev
 ```
-The server should start on `http://localhost:3000`.
 
-## Deployment
-To deploy the application, use platforms like **Vercel (Frontend)** and **Railway (Backend)**. Ensure environment variables are set accordingly.
+4. Build for production:
+```bash
+npm run build
+npm start
+```
 
-## Hackathon Relevance
-This project aligns with the **'AI for Smart and Adaptive Systems'** track by using AI to personalize career guidance. It automates coding assistance, provides financial insights through job market analysis, and generates career-related suggestions efficiently.
+## Development
+- Uses ESLint for code linting
+- PostCSS for CSS processing
+- Tailwind CSS for styling
+- Prisma for database management
 
 ## Contributing
-Contributions are welcome! Follow these steps:
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature-name`)
-3. Commit changes (`git commit -m 'Add feature'`)
-4. Push to the branch (`git push origin feature-name`)
-5. Open a pull request
-
-## License
-This project is licensed under the **MIT License**.
-
-## Contact
-For any queries or contributions, reach out via [GitHub Issues](https://github.com/chetanck03/Ai-coach/issues).
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
