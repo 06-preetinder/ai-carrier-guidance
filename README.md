@@ -8,7 +8,7 @@ SensAI is a modern web application built with Next.js, featuring AI capabilities
 - **Frontend**: React 19
 - **Styling**: Tailwind CSS
 - **Authentication**: Clerk
-- **Database**: Prisma
+- **Database**: Prisma/PostgreSQL 
 - **AI Integration**: Google Generative AI
 - **UI Components**: Radix UI
 - **Form Handling**: React Hook Form
